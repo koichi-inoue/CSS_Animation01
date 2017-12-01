@@ -1,0 +1,146 @@
+body {
+		text-align: center;
+}
+
+#container{
+	width:960px;
+	margin: auto;
+
+}
+
+article{
+	margin: 80px;
+}
+
+article h1{
+	color: gray;
+}
+
+article span{
+	margin: 1rem;
+	padding: 1rem;
+	background: #e1e1e1;
+	color: #666666;
+}
+
+/***** CSS Animation Class *****/
+
+/* Grow Shadow */
+.growShadow {
+	display: inline-block;
+	width: 160px;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	transition-property: box-shadow, transform;
+	transition-duration: 0.3s;
+}
+.growShadow:hover, .growShadow:focus, .growShadow:active {
+	box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.5);
+	transform: scale(1.1);
+}
+
+/* Rotate 3D */
+.rotate3d {
+	display: inline-block;
+	width: 126px;
+	height: 210px;
+	background-image: url("sample.jpg");
+	background-size: cover;
+	vertical-align: middle;
+	transition-property: box-shadow, transform;
+	transition-duration: 0.5s;
+}
+.rotate3d:hover, .rotate3d:focus, .rotate3d:active {
+	background-image: url("sample2.jpg");
+	transform: rotate3d(0, 1, 0, 180deg);
+}
+
+/* Underline */
+.underline {
+	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	overflow: hidden;
+}
+.underline:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 50%;
+	right: 50%;
+	bottom: 0;
+	background: orange;
+	height: 4px;
+	transition-property: left, right;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+}
+.underline:hover:before,
+.underline:focus:before,
+.underline:active:before {
+	left: 0;
+	right: 0;
+}
+
+/* Shutter */
+.shutter {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	background: #e1e1e1;
+	-webkit-transition-property: color;
+	transition-property: color;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+.shutter:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: orange;
+	transform: scaleX(0);
+	transform-origin: 50%;
+	transition-property: transform;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+}
+.shutter:hover, .shutter:focus, .shutter:active {
+	color: white;
+}
+.shutter:hover:before, .shutter:focus:before, .shutter:active:before {
+	transform: scaleX(1);
+}
+
+/* Buzz */
+.buzz {
+	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+}
+.buzz:hover, .buzz:focus, .buzz:active {
+	background: orange;
+	color: white;
+	animation-name: buzz;
+	animation-duration: 0.15s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+@keyframes buzz {
+	50% {
+		transform: translateX(3px) rotate(2deg);
+	}
+	100% {
+		transform: translateX(-3px) rotate(-2deg);
+	}
+}
